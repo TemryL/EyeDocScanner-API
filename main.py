@@ -1,7 +1,7 @@
-from fastapi import FastAPI, HTTPException, Request
 from typing import List
 from pydantic import BaseModel
 from commands.gen_struct_out import process_data
+from fastapi import FastAPI, HTTPException, Request, Response
 
 
 app = FastAPI()
@@ -31,6 +31,10 @@ class OCRData(BaseModel):
     cropRegion: CropRegion
     detectedTextList: List[DetectedText]
 
+
+@app.get("/")
+def read_root():
+    return Response("The EyeDocScanner API is running.")
 
 @app.post("/")
 def handle_post_request(data: List[OCRData], request: Request):

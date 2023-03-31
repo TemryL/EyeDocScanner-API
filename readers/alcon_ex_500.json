@@ -1,0 +1,194 @@
+{
+	"name": "Alcon EX500",
+	"distinctive_pattern": "EX500.+Treatment Report",
+	"fields": [
+		{
+			"name": "title",
+			"pattern": "EX500.+Treatment Report"
+		},
+		{
+			"name": "name",
+			"pattern": "{patterns.name}, {patterns.name}",
+			"keys": ["Last name", "First name"],
+			"below": "title"
+		},
+		{
+			"name": "birth date",
+			"pattern": "{patterns.date}",
+			"keys": ["Birth date"],
+			"region": [0.0, 0.5, 0.75, 1]
+		},
+		{
+			"name": "gender key",
+			"pattern": "Gender"
+		},
+		{
+			"name": "gender",
+			"pattern": "[a-z]+",
+			"keys": ["Gender"],
+			"on_right_of": "gender key",
+			"region_width": 10
+		},
+		{
+			"name": "eye",
+			"pattern": "O[SD]",
+			"keys": ["Eye"],
+			"region": [0.2, 0.7, 0.7, 1]
+		},
+		{
+			"name": "treatment date key",
+			"pattern": "Treatment date"
+		},
+		{
+			"name": "treatment date",
+			"pattern": "{patterns.date_time}",
+			"keys": ["Treatment date (DD.MM.YYYY)", "Treatment time"],
+			"on_right_of": "treatment date key",
+			"region_width": 10
+		},
+		{
+			"name": "refraction key",
+			"pattern": "Refraction"
+		},
+		{
+			"name": "refraction",
+			"pattern": "{patterns.shape_alcon}",
+			"keys": ["Refraction sphere", "Refraction cylinder", "Refraction axis"],
+			"on_right_of": "refraction key",
+			"region_width": 20
+		},
+		{
+			"name": "treatment key",
+			"pattern": "\\(Treatment|Correction",
+			"n_candidates": 5
+		},
+		{
+			"name": "treatment",
+			"pattern": "{patterns.shape_alcon}",
+			"keys": ["Treatment sphere", "Treatment cylinder", "Treatment axis"],
+			"on_right_of": "treatment key",
+			"region_width": 20
+		},
+		{
+			"name": "optical zone key",
+			"pattern": "Optical zone"
+		},
+		{
+			"name": "optical zone",
+			"pattern": "{patterns.length_mm}",
+			"keys": ["Optical zone"],
+			"on_right_of": "optical zone key",
+			"region_width": 5
+		},
+		{
+			"name": "flap key",
+			"pattern": "(Flap / Epi Thickness|Planned flap)"
+		},
+		{
+			"name": "flap",
+			"pattern": "{patterns.length_um}",
+			"keys": ["Flap / Epi thickness"],
+			"on_right_of": "flap key",
+			"region_width": 5
+		},
+		{
+			"name": "transition zone key",
+			"pattern": "Transition zone"
+		},
+		{
+			"name": "transition zone",
+			"pattern": "{patterns.length_mm}",
+			"keys": ["Transition zone"],
+			"on_right_of": "transition zone key",
+			"region_width": 5
+		},
+		{
+			"name": "cornea thickness key",
+			"pattern": "Cornea thickness"
+		},
+		{
+			"name": "cornea thickness",
+			"pattern": "{patterns.length_um}",
+			"keys": ["Cornea thickness"],
+			"on_right_of": "cornea thickness key",
+			"region_width": 5
+		},
+		{
+			"name": "ablation zone key",
+			"pattern": "Ablation zone"
+		},
+		{
+			"name": "ablation zone",
+			"pattern": "{patterns.length_mm}",
+			"keys": ["Ablation zone"],
+			"on_right_of": "ablation zone key",
+			"region_width": 5
+		},
+		{
+			"name": "residual stroma key",
+			"pattern": "Residual stroma"
+		},
+		{
+			"name": "residual stroma",
+			"pattern": "{patterns.length_um}",
+			"keys": ["Residual stroma"],
+			"on_right_of": "residual stroma key",
+			"region_width": 5
+		},
+		{
+			"name": "total duration key",
+			"pattern": "Total duration"
+		},
+		{
+			"name": "total duration",
+			"pattern": "{patterns.time_s}",
+			"keys": ["Total duration (s)"],
+			"on_right_of": "total duration key",
+			"region_width": 5
+		},
+		{
+			"name": "breaks key",
+			"pattern": "Breaks"
+		},
+		{
+			"name": "breaks",
+			"pattern": "\\d+ \\({patterns.time_s}\\)",
+			"keys": ["Breaks (s)"],
+			"on_right_of": "breaks key",
+			"region_width": 5
+		},
+		{
+			"name": "k1q1 key",
+			"pattern": "K1 / Q1"
+		},
+		{
+			"name": "k1q1",
+			"pattern": "{patterns.KQ}",
+			"keys": ["K1", "K1 axis", "Q1"],
+			"on_right_of": "k1q1 key",
+			"region_width": 20
+		},
+		{
+			"name": "k2q2 key",
+			"pattern": "K2 / Q2"
+		},
+		{
+			"name": "k2q2",
+			"pattern": "{patterns.KQ}",
+			"keys": ["K2", "K2 axis", "Q2"],
+			"on_right_of": "k2q2 key",
+			"region_width": 20
+		},
+		{
+			"name": "pupil key",
+			"pattern": "Pupil"
+		},
+		{
+			"name": "pupil",
+			"pattern": "{patterns.length_mm}",
+			"keys": ["Pupil"],
+			"on_right_of": "pupil key",
+			"region_width": 5
+		}
+	]
+}

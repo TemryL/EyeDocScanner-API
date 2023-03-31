@@ -1,0 +1,465 @@
+{
+	"name": "Sophtalmo",
+	"distinctive_pattern": "- Venue : \\d+ / \\d+",
+	"fields": [
+		{
+			"name": "nameBirth",
+			"pattern": "Contacts - Softalmo [0-9\\.]+ - {patterns.name} {patterns.name} - (\\d+) - {patterns.date}",
+			"keys": ["First name", "Last name", "ID", "DOB"],
+			"data_order": [1, 0, 3, 2]
+		},
+		{
+			"name": "date",
+			"pattern": "{patterns.date} {patterns.time}",
+			"keys": ["Date of consultation"]
+		},
+		{
+			"name": "autorefract",
+			"pattern": "AutoRéfractom"
+		},
+		{
+			"name": "autorefract OD key",
+			"pattern": "OD:",
+			"relative_to": "autorefract",
+			"region_relative": [0, 30, -3.5, 0.5]
+		},
+		{
+			"name": "autorefract OD",
+			"pattern": "{patterns.shape_sophtalmo}",
+			"keys": [
+				"OD-Autorefractometer-Sphere",
+				"OD-Autorefractometer-Cylindre",
+				"OD-Autorefractometer-Axis"
+			],
+			"on_right_of": "autorefract OD key",
+			"region_width": 20
+		},
+		{
+			"name": "autorefract OG key",
+			"pattern": "OG:", "on_right_of": "autorefract OD key"
+		},
+		{
+			"name": "autorefract OG",
+			"pattern": "{patterns.shape_sophtalmo}",
+			"keys": [
+				"OG-Autorefractometer-Sphere",
+				"OG-Autorefractometer-Cylindre",
+				"OG-Autorefractometer-Axis"
+			],
+			"on_right_of": "autorefract OG key",
+			"region_width": 20
+		},
+		{
+			"name": "refraction",
+			"pattern": "^Réfraction$"
+		},
+		{
+			"name": "refraction OD key",
+			"pattern": "OD:",
+			"relative_to": "refraction",
+			"region_relative": [0, 30, -2, 0.5]
+		},
+		{
+			"name": "refraction OD",
+			"pattern": "{patterns.shape_sophtalmo}",
+			"keys": [
+				"OD-Refractometer-Sphere",
+				"OD-Refractometer-Cylindre",
+				"OD-Refractometer-Axis"
+			],
+			"on_right_of": "refraction OD key",
+			"region_width": 20
+		},
+		{
+			"name": "refraction OD ADD key",
+			"pattern": "Addition :",
+			"below": "refraction OD key",
+			"region_height": 2
+		},
+		{
+			"name": "refraction OD ADD",
+			"pattern": "{patterns.add}",
+			"keys": ["OD-Refractometer-ADD"],
+			"on_right_of": "refraction OD ADD key",
+			"region_width": 5
+		},
+		{
+			"name": "refraction OG key",
+			"pattern": "OG:", "on_right_of": "refraction OD key"
+		},
+		{
+			"name": "refraction OG",
+			"pattern": "{patterns.shape_sophtalmo}",
+			"keys": [
+				"OG-Refractometer-Sphere",
+				"OG-Refractometer-Cylindre",
+				"OG-Refractometer-Axis"
+			],
+			"on_right_of": "refraction OG key",
+			"region_width": 20
+		},
+		{
+			"name": "refraction OG ADD key",
+			"pattern": "Addition :",
+			"below": "refraction OG key",
+			"region_height": 2
+		},
+		{
+			"name": "refraction OG ADD",
+			"pattern": "{patterns.add}",
+			"keys": ["OG-Refractometer-ADD"],
+			"on_right_of": "refraction OG ADD key",
+			"region_width": 5
+		},
+		{
+			"name": "glasses",
+			"pattern": "Portée"
+		},
+		{
+			"name": "glasses OD key",
+			"pattern": "OD:",
+			"relative_to": "glasses",
+			"region_relative": [0, 30, -0.5, 2]
+		},
+		{
+			"name": "glasses OD",
+			"pattern": "{patterns.shape_sophtalmo}",
+			"keys": [
+				"OD-Glasses-Sphere",
+				"OD-Glasses-Cylindre",
+				"OD-Glasses-Axis"
+			],
+			"on_right_of": "glasses OD key",
+			"region_width": 20
+		},
+		{
+			"name": "glasses OD ADD key",
+			"pattern": "Addition :",
+			"below": "glasses OD key",
+			"region_height": 2
+		},
+		{
+			"name": "glasses OD ADD",
+			"pattern": "{patterns.add}",
+			"keys": ["OD-Glasses-ADD"],
+			"on_right_of": "glasses OD ADD key",
+			"region_width": 5
+		},
+		{
+			"name": "glasses OG key",
+			"pattern": "OG:",
+			"on_right_of": "glasses OD key"
+		},
+		{
+			"name": "glasses OG",
+			"pattern": "{patterns.shape_sophtalmo}",
+			"keys": [
+				"OG-Glasses-Sphere",
+				"OG-Glasses-Cylindre",
+				"OG-Glasses-Axis"
+			],
+			"on_right_of": "glasses OG key",
+			"region_width": 20
+		},
+		{
+			"name": "glasses OG ADD key",
+			"pattern": "Addition :",
+			"below": "glasses OG key",
+			"region_height": 2
+		},
+		{
+			"name": "glasses OG ADD",
+			"pattern": "{patterns.add}",
+			"keys": ["OG-Glasses-ADD"],
+			"on_right_of": "glasses OG ADD key",
+			"region_width": 5
+		},
+		{
+			"name": "acuity",
+			"pattern": "Acuité",
+			"below": "refraction OD key",
+			"region_height": 5
+		},
+		{
+			"name": "acuity OD far key",
+			"pattern": "de loin",
+			"on_right_of": "acuity",
+			"region_width": 50
+		},
+		{
+			"name": "acuity OD far",
+			"pattern": "{patterns.acuity_far}",
+			"keys": ["OD-VisualAcuity-Far"],
+			"below": "acuity OD far key",
+			"region_height": 2
+		},
+		{
+			"name": "acuity OD near key",
+			"pattern": "de près",
+			"on_right_of": "acuity OD far key",
+			"region_width": 20
+		},
+		{
+			"name": "acuity OD near",
+			"pattern": "{patterns.acuity_near}",
+			"keys": ["OD-VisualAcuity-Near"],
+			"below": "acuity OD near key",
+			"region_height": 2
+		},
+		{
+			"name": "acuity OG far key",
+			"pattern": "de loin",
+			"on_right_of": "acuity OD far key"
+		},
+		{
+			"name": "acuity OG far",
+			"pattern": "{patterns.acuity_far}",
+			"keys": ["OG-VisualAcuity-Far"],
+			"below": "acuity OG far key",
+			"region_height": 2
+		},
+		{
+			"name": "acuity OG near key",
+			"pattern": "de près",
+			"on_right_of": "acuity OG far key"
+		},
+		{
+			"name": "acuity OG near",
+			"pattern": "{patterns.acuity_near}",
+			"keys": ["OG-VisualAcuity-Near"],
+			"below": "acuity OG near key",
+			"region_height": 2
+		},
+		{
+			"name": "IOP",
+			"pattern": "^TO$"
+		},
+		{
+			"name": "IOP OD key",
+			"pattern": "OD:",
+			"relative_to": "IOP",
+			"region_relative": [0, 30, -1.5, 0.5]
+		},
+		{
+			"name": "IOP OD",
+			"pattern": "{patterns.IOP}",
+			"keys": ["OD-VisualAcuity-IOP"],
+			"on_right_of": "IOP OD key",
+			"region_width": 5
+		},
+		{
+			"name": "IOP OG key",
+			"pattern": "OG:", "on_right_of": "IOP OD key"
+		},
+		{
+			"name": "IOP OG",
+			"pattern": "{patterns.IOP}",
+			"keys": ["OG-VisualAcuity-IOP"],
+			"on_right_of": "IOP OG key",
+			"region_width": 5
+		},
+
+		{
+			"name": "keratometry",
+			"pattern": "Kératométrie"
+		},
+		{
+			"name": "keratometry OD mm key",
+			"pattern": "mm",
+			"relative_to": "keratometry",
+			"region_relative": [0, 30, -1.5, 0.5]
+		},
+		{
+			"name": "keratometry OD mm 1",
+			"pattern": "{patterns.kerato_mm}",
+			"keys": ["OD-Keratometry-mm1"],
+			"below": "keratometry OD mm key",
+			"region_height": 2
+		},
+		{
+			"name": "keratometry OD mm 2",
+			"pattern": "{patterns.kerato_mm}",
+			"keys": ["OD-Keratometry-mm2"],
+			"below": "keratometry OD mm 1",
+			"region_height": 1.5
+		},
+		{
+			"name": "keratometry OD mm 3",
+			"pattern": "{patterns.kerato_mm}",
+			"keys": ["OD-Keratometry-mm3"],
+			"below": "keratometry OD mm 2",
+			"region_height": 1.5
+		},
+		{
+			"name": "keratometry OD As key",
+			"pattern": "As",
+			"on_right_of": "keratometry OD mm key",
+			"region_width": 15
+		},
+		{
+			"name": "keratometry OD As 1",
+			"pattern": "{patterns.kerato_as}",
+			"keys": ["OD-Keratometry-As1"],
+			"below": "keratometry OD As key",
+			"region_height": 1.5
+		},
+		{
+			"name": "keratometry OD As 2",
+			"pattern": "{patterns.kerato_as}",
+			"keys": ["OD-Keratometry-As2"],
+			"below": "keratometry OD As 1",
+			"region_height": 1.5
+		},
+		{
+			"name": "keratometry OD As 3",
+			"pattern": "{patterns.kerato_as}",
+			"keys": ["OD-Keratometry-As3"],
+			"below": "keratometry OD As 2",
+			"region_height": 1.5
+		},
+		{
+			"name": "keratometry OD Dio key",
+			"pattern": "Dio",
+			"on_right_of": "keratometry OD mm key",
+			"region_width": 30
+		},
+		{
+			"name": "keratometry OD Dio 1",
+			"pattern": "{patterns.kerato_dio}",
+			"keys": ["OD-Keratometry-Dio1"],
+			"below": "keratometry OD Dio key",
+			"region_height": 1.5
+		},
+		{
+			"name": "keratometry OD Dio 2",
+			"pattern": "{patterns.kerato_dio}",
+			"keys": ["OD-Keratometry-Dio2"],
+			"below": "keratometry OD Dio 1",
+			"region_height": 1.5
+		},
+		{
+			"name": "keratometry OD Dio 3",
+			"pattern": "{patterns.kerato_dio}",
+			"keys": ["OD-Keratometry-Dio3"],
+			"below": "keratometry OD Dio 2",
+			"region_height": 1.5
+		},
+		{
+			"name": "keratometry OD Javal key",
+			"pattern": "Javal",
+			"on_right_of": "keratometry OD mm key",
+			"region_width": 45
+		},
+		{
+			"name": "keratometry OD Javal 1",
+			"pattern": "{patterns.kerato_javal}",
+			"keys": ["OD-Keratometry-Javal1"],
+			"below": "keratometry OD Javal key",
+			"region_height": 1.5
+		},
+		{
+			"name": "keratometry OD Javal 2",
+			"pattern": "{patterns.kerato_javal}",
+			"keys": ["OD-Keratometry-Javal2"],
+			"below": "keratometry OD Javal 1",
+			"region_height": 1.5
+		},
+		{
+			"name": "keratometry OG mm key",
+			"pattern": "mm",
+			"on_right_of": "keratometry OD mm key"
+		},
+		{
+			"name": "keratometry OG mm 1",
+			"pattern": "{patterns.kerato_mm}",
+			"keys": ["OG-Keratometry-mm1"],
+			"below": "keratometry OG mm key",
+			"region_height": 2
+		},
+		{
+			"name": "keratometry OG mm 2",
+			"pattern": "{patterns.kerato_mm}",
+			"keys": ["OG-Keratometry-mm2"],
+			"below": "keratometry OG mm 1",
+			"region_height": 1.5
+		},
+		{
+			"name": "keratometry OG mm 3",
+			"pattern": "{patterns.kerato_mm}",
+			"keys": ["OG-Keratometry-mm3"],
+			"below": "keratometry OG mm 2",
+			"region_height": 1.5
+		},
+		{
+			"name": "keratometry OG As key",
+			"pattern": "As",
+			"on_right_of": "keratometry OG mm key"
+		},
+		{
+			"name": "keratometry OG As 1",
+			"pattern": "{patterns.kerato_as}",
+			"keys": ["OG-Keratometry-As1"],
+			"below": "keratometry OG As key",
+			"region_height": 1.5
+		},
+		{
+			"name": "keratometry OG As 2",
+			"pattern": "{patterns.kerato_as}",
+			"keys": ["OG-Keratometry-As2"],
+			"below": "keratometry OG As 1",
+			"region_height": 1.5
+		},
+		{
+			"name": "keratometry OG As 3",
+			"pattern": "{patterns.kerato_as}",
+			"keys": ["OG-Keratometry-As3"],
+			"below": "keratometry OG As 2",
+			"region_height": 1.5
+		},
+		{
+			"name": "keratometry OG Dio key",
+			"pattern": "Dio",
+			"on_right_of": "keratometry OG mm key"
+		},
+		{
+			"name": "keratometry OG Dio 1",
+			"pattern": "{patterns.kerato_dio}",
+			"keys": ["OG-Keratometry-Dio1"],
+			"below": "keratometry OG Dio key",
+			"region_height": 1.5
+		},
+		{
+			"name": "keratometry OG Dio 2",
+			"pattern": "{patterns.kerato_dio}",
+			"keys": ["OG-Keratometry-Dio2"],
+			"below": "keratometry OG Dio 1",
+			"region_height": 1.5
+		},
+		{
+			"name": "keratometry OG Dio 3",
+			"pattern": "{patterns.kerato_dio}",
+			"keys": ["OG-Keratometry-Dio3"],
+			"below": "keratometry OG Dio 2",
+			"region_height": 1.5
+		},
+		{
+			"name": "keratometry OG Javal key",
+			"pattern": "Javal",
+			"on_right_of": "keratometry OG mm key"
+		},
+		{
+			"name": "keratometry OG Javal 1",
+			"pattern": "{patterns.kerato_javal}",
+			"keys": ["OG-Keratometry-Javal1"],
+			"below": "keratometry OG Javal key",
+			"region_height": 1.5
+		},
+		{
+			"name": "keratometry OG Javal 2",
+			"pattern": "{patterns.kerato_javal}",
+			"keys": ["OG-Keratometry-Javal2"],
+			"below": "keratometry OG Javal 1",
+			"region_height": 1.5
+		}
+	]
+}

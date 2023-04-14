@@ -28,10 +28,10 @@ class CroppedOcrResults:
     @staticmethod
     def from_data(data):
         cropped_ocr_results = CroppedOcrResults(
-            CropRegion.from_data(data.cropRegion)
+            CropRegion.from_data(data["cropRegion"])
         )
 
-        for d in data.detectedTextList:
+        for d in data["detectedTextList"]:
             cropped_ocr_results.detected_text_list.append(
                 DetectedText.from_data(d)
             )

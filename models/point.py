@@ -13,4 +13,4 @@ class Point:
     @staticmethod
     def from_data(data):
         """Creates new instance from dictionnary"""
-        return Point(data.x, data.y)
+        return Point(data["x"], data["y"])

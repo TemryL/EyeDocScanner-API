@@ -7,4 +7,4 @@ class CropRegion:
 
     @staticmethod
     def from_data(data):
-        return CropRegion(data.x, data.x, data.width, data.height)
+        return CropRegion(data["x"], data["y"], data["width"], data["height"])

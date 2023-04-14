@@ -79,10 +79,10 @@ class BoundingBox:
     def from_data(data):
         """Creates new instance from dictionnary"""
         return BoundingBox(
-            Point.from_data(data.bottomLeft),
-            Point.from_data(data.bottomRight),
-            Point.from_data(data.topLeft),
-            Point.from_data(data.topRight),
+            Point.from_data(data["bottomLeft"]),
+            Point.from_data(data["bottomRight"]),
+            Point.from_data(data["topLeft"]),
+            Point.from_data(data["topRight"]),
         )
 
     @staticmethod

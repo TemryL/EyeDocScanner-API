@@ -37,4 +37,4 @@ class DetectedText:
     @staticmethod
     def from_data(data):
         """Creates new instance from dictionnary"""
-        return DetectedText(data.text, BoundingBox.from_data(data.bbox))
+        return DetectedText(data["text"], BoundingBox.from_data(data["bbox"]))

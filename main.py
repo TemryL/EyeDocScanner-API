@@ -8,7 +8,7 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return Response("The EyeDocScanner API is running.")
+    return Response("The EyeDocScanner API V2 is running.")
 
 @app.post("/")
 async def handle_post_request(request: Request):

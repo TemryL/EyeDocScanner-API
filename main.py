@@ -6,11 +6,11 @@ from fastapi import FastAPI, HTTPException, Request, Response
 app = FastAPI()
 
 
-@app.get("/")
+@app.get("/scanner/")
 def read_root():
     return Response("The EyeDocScanner API V2 is running.")
 
-@app.post("/")
+@app.post("/scanner/")
 async def handle_post_request(request: Request):
     ctype = request.headers['content-type']
     

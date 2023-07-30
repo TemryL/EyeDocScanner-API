@@ -2,7 +2,7 @@
 This API receives OCR data in JSON format from the EyeDocScanner IOS app (see [EyeDocScanner App](https://github.com/TemryL/EyeDocScanner_App)) and return the structured data in JSON format to the IOS app. The IOS app communicate with the API through HTTP request.
 
 The concept, inner working and performance of this codebase are explored in the following presentation:  
-[S. Pham-Ba, *VITA'App, Picture to Structured text, Tech meeting*, 2023](https://github.com/EPFL-ENAC/vita-app/files/10909181/2023.03.06.-.VITA.App.Tech.meeting.pdf)
+[S. Pham-Ba, *VITA'App, Picture to Structured text, Tech meeting*, 2023](https://github.com/TemryL/EyeDocScanner_API/files/12208931/2023.03.06.-.VITA.App.Tech.meeting.pdf)
 
 ## Usage for production 
 The current version of the API is publicly accessible at https://vitademo.epfl.ch/scanner/
